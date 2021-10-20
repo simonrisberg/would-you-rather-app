@@ -6,4 +6,4 @@ export function receiveQuestions(questions) {
     type: RECEIVE_QUESTIONS,
     questions
   }
-}
+} 
