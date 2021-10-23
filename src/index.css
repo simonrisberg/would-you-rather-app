@@ -39,3 +39,59 @@ li {
   padding-right: 20px;
   text-decoration: none;
 }
+
+.login-container {
+  width: 200%;
+  max-width: 590px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  border: 1px solid #dad7d7;
+  border-radius: 3px;
+}
+
+.login-headline {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-text {
+  font-weight: bold;
+  padding-left: 130px;
+}
+
+.login-smalltext {
+  padding-top: 15px;
+  padding-left: 190px;
+}
+
+.sign-in {
+  padding-left: 245px;
+  padding-top: 70px;
+  color: rgb(74, 172, 139);
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.sign-in-picker {
+  margin: 30px;
+  height: 30px;
+}
+
+.sign-in-btn {
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,.29);
+  cursor: pointer;
+  background: rgb(74, 172, 139);
+  font-size: 16px;
+  width: 500px;
+  position: relative;
+  color:white;
+  font-weight: bold;
+  margin-left: 30px;
+}
+

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { handleInitialData } from '../actions/shared';
 import { connect } from 'react-redux'
 import Nav from './Nav'
+import Login from './LogIn'
 
 class App extends Component {
   componentDidMount() {
@@ -11,6 +12,7 @@ class App extends Component {
     return (
       <div className='container'>
         <Nav />
+        <Login />
       </div>
     )
   }
