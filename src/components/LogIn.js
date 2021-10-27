@@ -1,9 +1,35 @@
-import userEvent from "@testing-library/user-event";
 import React, { Component } from "react";
 import { connect } from 'react-redux' 
 import { setAuthedUser } from "../actions/authedUser";
 
 class LogIn extends Component {
+
+  state = {
+    selectedUserId: ''
+  }
+
+  handleChange = (e) => {
+    const userId = e.target.value
+
+    console.log("SELECTED USER", userId)
+
+    this.setState(() => ({
+      selectedUserId: userId
+    }))
+
+  }
+
+  handleSubmit = (e) => {
+    
+    e.preventDefault()
+
+    const { selectedUserId } = this.state
+
+    console.log("SELECTED", selectedUserId)
+    
+    this.props.dispatch(setAuthedUser(selectedUserId))
+
+  }
 
 
   render() {
@@ -13,17 +39,17 @@ class LogIn extends Component {
 
     return (
       <div className='login-container'>
-        <div className='login-headline'>
+        <form className='login-headline' onSubmit={this.handleSubmit}>
           <span className='login-text'>Welcome to the Would You Rather App!</span>
           <span className='login-smalltext'>Please sign in to continue</span>
           <span className='sign-in'>Sign in</span>
           <select className='sign-in-picker' id="users">
             {users.map((user) => (
-              <option key={user.id} value={user}>{user.name}</option>
+              <option key={user.id} value={user.id} onChange={(e) => this.handleChange(e.target.value)}>{user.name}</option>
             ))}
           </select>
-          <button className='sign-in-btn'>Sign in</button>
-        </div>
+          <button className='sign-in-btn' type='submit'>Sign in</button>
+        </form>
       </div>
     )
   }
