@@ -1,11 +1,15 @@
+import userEvent from "@testing-library/user-event";
 import React, { Component } from "react";
 import { connect } from 'react-redux' 
+import { setAuthedUser } from "../actions/authedUser";
 
 class LogIn extends Component {
 
 
   render() {
     const { users } = this.props
+
+    console.log("USERS", users)
 
     return (
       <div className='login-container'>
@@ -15,7 +19,7 @@ class LogIn extends Component {
           <span className='sign-in'>Sign in</span>
           <select className='sign-in-picker' id="users">
             {users.map((user) => (
-              <option key={user} value={user}>{user}</option>
+              <option key={user.id} value={user}>{user.name}</option>
             ))}
           </select>
           <button className='sign-in-btn'>Sign in</button>
@@ -27,7 +31,7 @@ class LogIn extends Component {
 
 function mapStateToProps({users}) {
   return {
-    users: Object.keys(users)
+    users: Object.values(users)
   }
 }
 
