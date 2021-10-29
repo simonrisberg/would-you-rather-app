@@ -8,8 +8,7 @@ class LogIn extends Component {
     selectedUserId: ''
   }
 
-  handleChange = (e) => {
-    const userId = e.target.value
+  handleChange = (userId) => {
 
     console.log("SELECTED USER", userId)
 
@@ -43,9 +42,9 @@ class LogIn extends Component {
           <span className='login-text'>Welcome to the Would You Rather App!</span>
           <span className='login-smalltext'>Please sign in to continue</span>
           <span className='sign-in'>Sign in</span>
-          <select className='sign-in-picker' id="users">
+          <select className='sign-in-picker' id="users" onChange={(e) => this.handleChange(e.target.value)}>
             {users.map((user) => (
-              <option key={user.id} value={user.id} onChange={(e) => this.handleChange(e.target.value)}>{user.name}</option>
+              <option key={user.id} value={user.id}>{user.name}</option>
             ))}
           </select>
           <button className='sign-in-btn' type='submit'>Sign in</button>
