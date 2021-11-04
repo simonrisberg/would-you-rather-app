@@ -11,13 +11,23 @@ class App extends Component {
   }
   render() {
 
+    const { authedUser } = this.props
+
+    console.log("AUTHEDUSER", authedUser)
+
     return (
       <div className='container'>
         <Nav />
-        <Home />
+        {authedUser === null ? <Login /> : <Home />}
       </div>
     )
   }
 }
 
-export default connect()(App);
+function mapStateToProps({ authedUser }) {
+  return {
+    authedUser,
+  }
+}
+
+export default connect(mapStateToProps)(App);
