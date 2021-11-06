@@ -8,8 +8,6 @@ class Poll extends Component {
 
     const { question, user } = this.props
 
-    console.log("QUESTION", question)
-
     return (
       <div className='poll'>
         <img src={user.avatarURL} alt={"Avatar"} className='avatar'></img>
@@ -25,7 +23,7 @@ class Poll extends Component {
 }
 
 function mapStateToProps({ questions, users, authedUser }, { id }) {
-  
+
   const question = questions[id]
   const user = users[question.author]
 
@@ -33,9 +31,12 @@ function mapStateToProps({ questions, users, authedUser }, { id }) {
 
   const loggedInUserAnswers = loggedInUser.answers
 
+  const answeredQuestion = loggedInUserAnswers[question.id] && question
+  
   return {
     question: question,
-    user: user
+    user: user,
+    answeredQuestion: answeredQuestion
   }
 }
 
