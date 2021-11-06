@@ -24,15 +24,15 @@ class Poll extends Component {
   }
 }
 
-function mapStateToProps({ questions, users }, { id }) {
-
-  console.log("ID", id)
-
+function mapStateToProps({ questions, users, authedUser }, { id }) {
+  
   const question = questions[id]
   const user = users[question.author]
 
-  
-  
+  const loggedInUser = users[authedUser]
+
+  const loggedInUserAnswers = loggedInUser.answers
+
   return {
     question: question,
     user: user
