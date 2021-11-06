@@ -13,8 +13,6 @@ class App extends Component {
 
     const { authedUser } = this.props
 
-    console.log("AUTHEDUSER", authedUser)
-
     return (
       <div className='container'>
         <Nav />
