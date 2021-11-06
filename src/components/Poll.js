@@ -6,13 +6,17 @@ class Poll extends Component {
 
   render() {
 
+    const { question, user } = this.props
+
+    console.log("QUESTION", question)
+
     return (
       <div className='poll'>
-        <img src={"https://tylermcginnis.com/would-you-rather/sarah.jpg"} alt={"Avatar"} className='avatar'></img>
-        <span style={{ fontWeight: "bold" }}>Simon Risberg asks:</span>
+        <img src={user.avatarURL} alt={"Avatar"} className='avatar'></img>
+        <span style={{ fontWeight: "bold" }}>{question.author} asks:</span>
         <div className='poll-info'>
           <span style={{ fontWeight: "bold", fontSize: "20px", marginBottom: "15px" }}>Would you rather</span>
-          <span>Code Javascript</span>
+          <span>{question.optionOne.text}</span>
           <button className='poll-button'>View Poll</button>
         </div>
       </div>
@@ -20,4 +24,19 @@ class Poll extends Component {
   }
 }
 
-export default Poll
+function mapStateToProps({ questions, users }, { id }) {
+
+  console.log("ID", id)
+
+  const question = questions[id]
+  const user = users[question.author]
+
+  
+  
+  return {
+    question: question,
+    user: user
+  }
+}
+
+export default connect(mapStateToProps)(Poll)
