@@ -2,6 +2,7 @@ import { getInitialData } from "../utils/api";
 import { receiveUsers } from "./users"
 import { receiveQuestions } from "./questions";
 import { setAuthedUser } from "./authedUser";
+import { toggleUnAnsweredQuestions } from "./unAnsweredQuestionsIsActive";
 
 export function handleInitialData() {
   return (dispatch) => {
@@ -10,6 +11,7 @@ export function handleInitialData() {
         dispatch(receiveUsers(users))
         dispatch(receiveQuestions(questions))
         dispatch(setAuthedUser(null))
+        dispatch(toggleUnAnsweredQuestions(true))
       })
   }
 }
