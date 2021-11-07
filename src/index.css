@@ -132,6 +132,7 @@ li {
   background-color: white;
   color: #00CC66;
   border: 2px solid #00CC66;
+  cursor: pointer;
 }
 
 .poll {
