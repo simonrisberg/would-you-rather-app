@@ -40,6 +40,51 @@ li {
   text-decoration: none;
 }
 
+.new-question-container {
+  width: 200%;
+  max-width: 590px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  border: 1px solid #dad7d7;
+  border-radius: 3px;
+}
+
+.new-question-headline {
+  text-align: center;
+}
+
+.new-question-inputfield-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-question-btn {
+  background-color: #00CC66; 
+  border: none;
+  color: white;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding: 15px 100px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 20px;
+  transition-duration: 0.4s;
+  font-weight: bold;
+}
+
+.new-question-inputfield {
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-top: 15px;
+}
+
 .login-container {
   width: 200%;
   max-width: 590px;

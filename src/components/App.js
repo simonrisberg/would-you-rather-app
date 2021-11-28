@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Nav from './Nav'
 import Login from './LogIn'
 import Home from './Home'
+import NewQuestion from './NewQuestion';
 
 class App extends Component {
   componentDidMount() {
