@@ -43,6 +43,7 @@ class LogIn extends Component {
           <span className='login-smalltext'>Please sign in to continue</span>
           <span className='sign-in'>Sign in</span>
           <select className='sign-in-picker' id="users" onChange={(e) => this.handleChange(e.target.value)}>
+            <option>Choose User</option>
             {users.map((user) => (
               <option key={user.id} value={user.id}>{user.name}</option>
             ))}
