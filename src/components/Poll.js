@@ -32,6 +32,8 @@ function mapStateToProps({ questions, users, authedUser, unAnsweredQuestionsIsAc
   const loggedInUserAnswers = loggedInUser.answers
 
   const answeredQuestion = loggedInUserAnswers[question.id] && question
+
+  console.log("ANSWERED QUESTIONS", answeredQuestion)
   
   return {
     question: question,
