@@ -5,6 +5,7 @@ import Nav from './Nav'
 import Login from './LogIn'
 import Home from './Home'
 import NewQuestion from './NewQuestion';
+import PollResult from './PollResult';
 
 class App extends Component {
   componentDidMount() {
