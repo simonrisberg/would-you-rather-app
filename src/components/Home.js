@@ -19,6 +19,12 @@ class Home extends Component {
 
   render() {
 
+    const { unAnsweredQuestionsIsActive, answeredQuestions, unAnsweredQuestions } = this.props
+
+    console.log("UNANSWERED QUESTIONS", unAnsweredQuestions)
+    console.log("ANSWERED QUESTIONS", answeredQuestions)
+    console.log("IS ACTIVE", unAnsweredQuestionsIsActive)
+
     return (
       <div className='home-container'>
         <div className='home-buttons'>
@@ -41,19 +47,13 @@ function mapStateToProps({ questions, users, authedUser, unAnsweredQuestionsIsAc
   
   const questionArray = Object.values(questions)
   const loggedInUser = users[authedUser]
+  const answersArray = Object.keys(loggedInUser.answers)
 
-  const answers = loggedInUser.answers
-
-  console.log("QUESTIONS", questionArray)
-
-  console.log("ANSWERS", answers)
-
-  const answeredQuestions = questionArray.filter(question => question.id[Object.keys(answers)])
-
-  console.log("ANSWERED QUESTIONS", answeredQuestions)
-  
   return {
-    questions: Object.values(questions)
+    questions: Object.values(questions),
+    unAnsweredQuestionsIsActive: unAnsweredQuestionsIsActive,
+    answeredQuestions: questionArray.filter(question => answersArray.some(answer => answer === question.id)),
+    unAnsweredQuestions: questionArray.filter(question => answersArray.every(answer => answer !== question.id))
   }
 }
 
