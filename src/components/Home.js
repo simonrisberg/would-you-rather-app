@@ -31,11 +31,21 @@ class Home extends Component {
           <button className='home-button' onClick={this.showUnansweredQuestions()} >Unanswered questions</button>
           <button className='home-button' onClick={this.showAnsweredQuestions()}>Answered questions</button>
         </div>
-        {this.props.questions.map((question) => (
-          <li key={question.id}>
-            <Poll id={question.id} />
+        {unAnsweredQuestionsIsActive ? this.props.unAnsweredQuestions.map((unAnsweredQuestion) => (
+          <li key={unAnsweredQuestion.id}>
+            <Poll question={unAnsweredQuestion} />
           </li>
-        ))}
+        )) 
+        
+        :
+
+        this.props.answeredQuestions.map((answeredQuestion) => (
+          <li key={answeredQuestion.id}>
+            <Poll question={answeredQuestion} />
+          </li>
+        )) 
+        
+        }
 
       </div>
 

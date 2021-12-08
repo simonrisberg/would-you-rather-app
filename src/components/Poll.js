@@ -6,7 +6,7 @@ class Poll extends Component {
 
   render() {
 
-    const { question, user, isUnAnsweredQuestionsActive } = this.props
+    const { question, user } = this.props
 
     return (
       <div className='poll'>
@@ -22,22 +22,13 @@ class Poll extends Component {
   }
 }
 
-function mapStateToProps({ questions, users, authedUser, unAnsweredQuestionsIsActive }, { id }) {
+function mapStateToProps({ users }, { question }) {
 
-  const question = questions[id]
   const user = users[question.author]
 
-  const loggedInUser = users[authedUser]
-
-  const loggedInUserAnswers = loggedInUser.answers
-
-  const answeredQuestion = loggedInUserAnswers[question.id] && question
-  
   return {
     question: question,
-    user: user,
-    answeredQuestion: answeredQuestion,
-    isUnAnsweredQuestionsActive: unAnsweredQuestionsIsActive
+    user: user
   }
 }
 
