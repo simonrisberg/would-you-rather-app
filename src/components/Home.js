@@ -37,7 +37,21 @@ class Home extends Component {
   }
 }
 
-function mapStateToProps({ questions }) {
+function mapStateToProps({ questions, users, authedUser, unAnsweredQuestionsIsActive }) {
+  
+  const questionArray = Object.values(questions)
+  const loggedInUser = users[authedUser]
+
+  const answers = loggedInUser.answers
+
+  console.log("QUESTIONS", questionArray)
+
+  console.log("ANSWERS", answers)
+
+  const answeredQuestions = questionArray.filter(question => question.id[Object.keys(answers)])
+
+  console.log("ANSWERED QUESTIONS", answeredQuestions)
+  
   return {
     questions: Object.values(questions)
   }
