@@ -77,6 +77,7 @@ li {
   border-radius: 20px;
   transition-duration: 0.4s;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .new-question-inputfield {
@@ -94,7 +95,7 @@ li {
   justify-content: center;
   margin: 0 auto;
   border: 1px solid #dad7d7;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 
 .login-headline {
@@ -330,5 +331,35 @@ li {
   margin-top: 10px;
   padding: 10px;
   margin-bottom: 10px;
+}
+
+.poll-details {
+  width: 100%;
+  max-width: 590px;
+  padding: 10px;
+  display: flex;
+  margin: 30px;
+  border: 1px solid #dad7d7;
+  border-radius:10px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 120px;
+}
+
+.poll-details-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.poll-details-img {
+  height: 100px;
+  border-radius: 50px;
+  margin: 10px;
+}
+
+.poll-details-choice {
+  display: flex;
+  flex-direction: column;
 }
 

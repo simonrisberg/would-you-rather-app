@@ -10,7 +10,7 @@ class PollResult extends Component {
         <h2 className='poll-result-headline'>Asked by Simon Risberg</h2>
         <div className='poll-result-info-container'>
           <div className='poll-result-img-container'>
-            <img src={'https://tylermcginnis.com/would-you-rather/tyler.jpg'} className='poll-result-img'></img>
+            <img src={'https://tylermcginnis.com/would-you-rather/tyler.jpg'} alt={"Avatar"} className='poll-result-img'></img>
           </div>
           <div className='poll-result-vote-container'>
             <h2>Results:</h2>
