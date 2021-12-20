@@ -1,9 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { handleInitialData } from '../actions/shared';
 import { connect } from 'react-redux'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Nav from './Nav'
 import Login from './LogIn'
 import Home from './Home'
+import LeaderBoard from './LeaderBoard'
+import NewQuestion from './NewQuestion';
 
 class App extends Component {
   componentDidMount() {
@@ -14,10 +17,20 @@ class App extends Component {
     const { authedUser } = this.props
 
     return (
-      <div className='container'>
-        <Nav />
-        {authedUser === null ? <Login /> : <Home />}
-      </div>
+      <Router>
+        <Fragment>
+          <div className='container'>
+            <Nav />
+            {authedUser === null
+              ? <Login />
+              : <Routes>
+                <Route path='/' exact element={<Home />} activeClassName='active' />
+                <Route path='/leaderboard' element={<LeaderBoard />} activeClassName='active' />
+                <Route path='/new' element={<NewQuestion />} activeClassName='active' />
+              </Routes>}
+          </div>
+        </Fragment>
+      </Router>
     )
   }
 }

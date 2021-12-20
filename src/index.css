@@ -40,6 +40,10 @@ li {
   text-decoration: none;
 }
 
+.active {
+  font-weight: bold;
+}
+
 .new-question-container {
   width: 200%;
   max-width: 590px;
