@@ -26,7 +26,7 @@ class App extends Component {
               : <Routes>
                 <Route path='/' exact element={<Home />} activeClassName='active' />
                 <Route path='/leaderboard' element={<LeaderBoard />} activeClassName='active' />
-                <Route path='/new' element={<NewQuestion />} activeClassName='active' />
+                <Route path='/add' element={<NewQuestion />} activeClassName='active' />
               </Routes>}
           </div>
         </Fragment>
