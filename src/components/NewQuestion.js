@@ -10,13 +10,11 @@ class NewQuestion extends Component {
   }
 
   handleTextOneChange = (e) => {
-    const textOne = e.target.value 
+    const textOne = e.target.value
 
     this.setState(() => ({
       textOne
     }))
-
-    console.log("FIELD 1", this.state.textOne)
   }
 
   handleTextTwoOnChange = (e) => {
@@ -25,8 +23,6 @@ class NewQuestion extends Component {
     this.setState(() => ({
       textTwo
     }))
-
-    console.log("FIELD 2", this.state.textTwo)
   }
 
   render() {
