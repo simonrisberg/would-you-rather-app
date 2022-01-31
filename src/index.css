@@ -210,6 +210,11 @@ li {
   margin: 10px;
 }
 
+.nav-avatar {
+  height: 50px;
+  border-radius: 25px;
+}
+
 .poll-button {
   background-color: white;
   color: #00CC66;

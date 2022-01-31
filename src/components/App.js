@@ -3,6 +3,7 @@ import { handleInitialData } from '../actions/shared';
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Nav from './Nav'
+import NavWithAvatar from './NavWithAvatar';
 import Login from './LogIn'
 import Home from './Home'
 import LeaderBoard from './LeaderBoard'
@@ -20,7 +21,12 @@ class App extends Component {
       <Router>
         <Fragment>
           <div className='container'>
-            <Nav />
+            {authedUser === null
+              ? <Nav /> 
+              : <NavWithAvatar />
+
+            }
+
             {authedUser === null
               ? <Login />
               : <Routes>
