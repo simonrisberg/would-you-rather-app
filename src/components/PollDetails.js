@@ -48,6 +48,8 @@ class PollDetails extends Component {
 function mapStateToProps({ authedUser, questions, users}, props) {
   
   const { id } = props.match.params
+
+  //TODO: Extract the author for the question based on question id.
   
   return {
     id,
