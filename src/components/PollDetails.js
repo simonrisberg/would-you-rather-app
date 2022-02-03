@@ -5,6 +5,10 @@ class PollDetails extends Component {
 
   render() {
 
+    const { question } = this.props
+
+    console.log("QUESTION", question)
+
     return (
       <div className="poll-details">
         <h2>Simon Risberg asks:</h2>
@@ -19,7 +23,7 @@ class PollDetails extends Component {
                   name="pollOption"
                   value="optionOne"
                 />
-                Code Javascript
+                {question.optionOne.text}
               </label>
               <label>
                 <input
@@ -28,7 +32,7 @@ class PollDetails extends Component {
                   value="optionTwo"
 
                 />
-                Code Python
+                {question.optionTwo.text}
               </label>
               <button className="new-question-btn">Submit</button>
             </div>
@@ -44,8 +48,6 @@ class PollDetails extends Component {
 function mapStateToProps({ authedUser, questions, users}, props) {
   
   const { id } = props.match.params
-
-  console.log("PROPS", props)
   
   return {
     id,
