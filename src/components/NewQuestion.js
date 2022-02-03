@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { handleAddQuestion } from '../actions/questions';
-import { Navigate } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 class NewQuestion extends Component {
 
@@ -47,7 +47,7 @@ class NewQuestion extends Component {
     const { toHome } = this.state
 
     if (toHome === true) {
-      return <Navigate to='/' />
+      return <Redirect to='/' />
     }
 
     return (

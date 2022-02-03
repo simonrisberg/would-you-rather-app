@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux'
+import { Link, withRouter } from 'react-router-dom'
 
 class Poll extends Component {
 
@@ -7,6 +8,8 @@ class Poll extends Component {
   render() {
 
     const { question, user } = this.props
+
+    const { id } = question
 
     return (
       <div className='poll'>
@@ -32,4 +35,4 @@ function mapStateToProps({ users }, { question }) {
   }
 }
 
-export default connect(mapStateToProps)(Poll)
+export default withRouter(connect(mapStateToProps)(Poll))

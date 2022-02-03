@@ -1,13 +1,14 @@
 import React, { Component, Fragment } from 'react'
 import { handleInitialData } from '../actions/shared';
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+import { BrowserRouter as Router, Route } from "react-router-dom"
 import Nav from './Nav'
 import NavWithAvatar from './NavWithAvatar';
 import Login from './LogIn'
 import Home from './Home'
 import LeaderBoard from './LeaderBoard'
 import NewQuestion from './NewQuestion';
+import PollDetails from './PollDetails';
 
 class App extends Component {
   componentDidMount() {
@@ -29,11 +30,12 @@ class App extends Component {
 
             {authedUser === null
               ? <Login />
-              : <Routes>
-                <Route path='/' exact element={<Home />} activeClassName='active' />
-                <Route path='/leaderboard' element={<LeaderBoard />} activeClassName='active' />
-                <Route path='/add' element={<NewQuestion />} activeClassName='active' />
-              </Routes>}
+              : <div>
+                <Route path='/' exact component={Home}/>
+                <Route path='/leaderboard' component={LeaderBoard} />
+                <Route path='/question/:id' component={PollDetails} />
+                <Route path='/add' component={NewQuestion}/>
+              </div>}
           </div>
         </Fragment>
       </Router>

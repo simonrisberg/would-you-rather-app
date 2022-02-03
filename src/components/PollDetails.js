@@ -41,4 +41,14 @@ class PollDetails extends Component {
 
 }
 
-export default connect()(PollDetails)
+function mapStateToProps({ authedUser, questions, users}, props) {
+  
+  const { id } = props.match.params
+  
+  return {
+    id,
+    question: questions[id] 
+  }
+}
+
+export default connect(mapStateToProps)(PollDetails)
