@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { handleAddQuestion } from '../actions/questions';
 
 class NewQuestion extends Component {
 
@@ -25,11 +26,25 @@ class NewQuestion extends Component {
     }))
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault()
+
+    const {textOne, textTwo } = this.state
+    const { dispatch } = this.props
+
+    dispatch(handleAddQuestion(textOne, textTwo))
+
+    this.setState(() => ({
+      textOne: '',
+      textTwo: ''
+    }))
+  }
+
   render() {
 
     return (
       <div className='new-question-container'>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <h1 className='new-question-headline'>Create New Question</h1>
           <p>Complete the question:</p>
           <h2>Would you rather ...</h2>
@@ -37,7 +52,7 @@ class NewQuestion extends Component {
             <input className='new-question-inputfield' type='text' onChange={this.handleTextOneChange}></input>
             <h2>OR</h2>
             <input className='new-question-inputfield ' type='text' onChange={this.handleTextTwoOnChange}></input>
-            <button className='new-question-btn'>Create question</button>
+            <button className='new-question-btn' type='submit'>Create question</button>
           </div>
 
         </form>
