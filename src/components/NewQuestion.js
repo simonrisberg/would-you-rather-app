@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { handleAddQuestion } from '../actions/questions';
+import { Navigate } from 'react-router-dom'
 
 class NewQuestion extends Component {
 
@@ -36,11 +37,18 @@ class NewQuestion extends Component {
 
     this.setState(() => ({
       textOne: '',
-      textTwo: ''
+      textTwo: '',
+      toHome: true
     }))
   }
 
   render() {
+
+    const { toHome } = this.state
+
+    if (toHome === true) {
+      return <Navigate to='/' />
+    }
 
     return (
       <div className='new-question-container'>
