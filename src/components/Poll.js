@@ -12,7 +12,7 @@ class Poll extends Component {
     const { id } = question
 
     return (
-      <div className='poll'>
+      <Link to={`/question/${id}`} className='poll'>
         <img src={user.avatarURL} alt={"Avatar"} className='avatar'></img>
         <span style={{ fontWeight: "bold" }}>{question.author} asks:</span>
         <div className='poll-info'>
@@ -20,7 +20,7 @@ class Poll extends Component {
           <span>{question.optionOne.text}</span>
           <button className='poll-button'>View Poll</button>
         </div>
-      </div>
+      </Link>
     )
   }
 }

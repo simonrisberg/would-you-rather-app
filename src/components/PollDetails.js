@@ -44,6 +44,8 @@ class PollDetails extends Component {
 function mapStateToProps({ authedUser, questions, users}, props) {
   
   const { id } = props.match.params
+
+  console.log("PROPS", props)
   
   return {
     id,
