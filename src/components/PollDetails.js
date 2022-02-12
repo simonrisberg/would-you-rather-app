@@ -5,15 +5,13 @@ class PollDetails extends Component {
 
   render() {
 
-    const { question } = this.props
-
-    console.log("QUESTION", question)
+    const { question, author } = this.props
 
     return (
       <div className="poll-details">
         <h2>Simon Risberg asks:</h2>
         <div className="poll-details-info">
-          <img src={"https://tylermcginnis.com/would-you-rather/tyler.jpg"} alt={"Avatar"} className='poll-details-img'></img>
+          <img src={author.avatarURL} alt={"Avatar"} className='poll-details-img'></img>
           <form>
             <div className="poll-details-choice">
               <h2>Would you rather</h2>
@@ -50,10 +48,15 @@ function mapStateToProps({ authedUser, questions, users}, props) {
   const { id } = props.match.params
 
   //TODO: Extract the author for the question based on question id.
-  
+
+  const theCurrentQuestion = questions[id]
+
+  const questionAuthor = theCurrentQuestion.author
+
   return {
     id,
-    question: questions[id] 
+    question: questions[id],
+    author: users[questionAuthor]
   }
 }
 
