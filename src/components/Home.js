@@ -59,6 +59,8 @@ function mapStateToProps({ questions, users, authedUser, unAnsweredQuestionsIsAc
   const loggedInUser = users[authedUser]
   const answersArray = Object.keys(loggedInUser.answers)
 
+  //TODO: Filter the answered and unanswered questions from recently created.
+
   return {
     questions: Object.values(questions),
     unAnsweredQuestionsIsActive: unAnsweredQuestionsIsActive,
