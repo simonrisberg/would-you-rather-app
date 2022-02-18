@@ -9,7 +9,7 @@ class PollDetails extends Component {
 
     return (
       <div className="poll-details">
-        <h2>Simon Risberg asks:</h2>
+        <h2>{author.name} asks:</h2>
         <div className="poll-details-info">
           <img src={author.avatarURL} alt={"Avatar"} className='poll-details-img'></img>
           <form>
