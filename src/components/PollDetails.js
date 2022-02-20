@@ -43,6 +43,8 @@ class PollDetails extends Component {
 
 }
 
+//TODO: Add a new view that will be shown if a user has answered a poll
+
 function mapStateToProps({ authedUser, questions, users}, props) {
   
   const { id } = props.match.params
