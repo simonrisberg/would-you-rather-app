@@ -56,8 +56,8 @@ function mapStateToProps({ questions, users, authedUser, unAnsweredQuestionsIsAc
   const answersArray = Object.keys(loggedInUser.answers)
   const answeredQuestions = questionArray.filter(question => answersArray.some(answer => answer === question.id))
   const unAnsweredQuestions = questionArray.filter(question => answersArray.every(answer => answer !== question.id))
-  const sortedAnsweredQuestions = answeredQuestions.sort((a, b) => (a.timestamp > b.timestamp) ? 1 : -1) 
-  const sortedUnansweredQuestions = unAnsweredQuestions.sort((a, b) => (a.timestamp > b.timestamp) ? 1 : -1)
+  const sortedAnsweredQuestions = answeredQuestions.sort((a, b) => (a.timestamp > b.timestamp) ? -1 : 1) 
+  const sortedUnansweredQuestions = unAnsweredQuestions.sort((a, b) => (a.timestamp > b.timestamp) ? -1 : 1)
 
   return {
     unAnsweredQuestionsIsActive: unAnsweredQuestionsIsActive,
