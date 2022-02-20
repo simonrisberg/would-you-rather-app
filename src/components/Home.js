@@ -21,17 +21,13 @@ class Home extends Component {
 
     const { unAnsweredQuestionsIsActive, answeredQuestions, unAnsweredQuestions } = this.props
 
-    console.log("UNANSWERED QUESTIONS", unAnsweredQuestions)
-    console.log("ANSWERED QUESTIONS", answeredQuestions)
-    console.log("IS ACTIVE", unAnsweredQuestionsIsActive)
-
     return (
       <div className='home-container'>
         <div className='home-buttons'>
           <button className='home-button' onClick={this.showUnansweredQuestions()} >Unanswered questions</button>
           <button className='home-button' onClick={this.showAnsweredQuestions()}>Answered questions</button>
         </div>
-        {unAnsweredQuestionsIsActive ? this.props.unAnsweredQuestions.map((unAnsweredQuestion) => (
+        {unAnsweredQuestionsIsActive ? unAnsweredQuestions.map((unAnsweredQuestion) => (
           <li key={unAnsweredQuestion.id}>
             <Poll question={unAnsweredQuestion} />
           </li>
@@ -39,7 +35,7 @@ class Home extends Component {
         
         :
 
-        this.props.answeredQuestions.map((answeredQuestion) => (
+        answeredQuestions.map((answeredQuestion) => (
           <li key={answeredQuestion.id}>
             <Poll question={answeredQuestion} />
           </li>
@@ -58,14 +54,21 @@ function mapStateToProps({ questions, users, authedUser, unAnsweredQuestionsIsAc
   const questionArray = Object.values(questions)
   const loggedInUser = users[authedUser]
   const answersArray = Object.keys(loggedInUser.answers)
+  const answeredQuestions = questionArray.filter(question => answersArray.some(answer => answer === question.id))
+  const unAnsweredQuestions = questionArray.filter(question => answersArray.every(answer => answer !== question.id))
+  const sortedAnsweredQuestions = answeredQuestions.sort((a, b) => (a.timestamp > b.timestamp) ? 1 : -1) 
+  const sortedUnansweredQuestions = unAnsweredQuestions.sort((a, b) => (a.timestamp > b.timestamp) ? 1 : -1)
 
+  
   //TODO: Filter the answered and unanswered questions from recently created.
 
+  console.log("ANSWERED QUESTIONS", sortedAnsweredQuestions)
+  console.log("UNANSWERED QUESTIONS", sortedUnansweredQuestions)
+
   return {
-    questions: Object.values(questions),
     unAnsweredQuestionsIsActive: unAnsweredQuestionsIsActive,
-    answeredQuestions: questionArray.filter(question => answersArray.some(answer => answer === question.id)),
-    unAnsweredQuestions: questionArray.filter(question => answersArray.every(answer => answer !== question.id))
+    answeredQuestions: sortedAnsweredQuestions,
+    unAnsweredQuestions: sortedUnansweredQuestions
   }
 }
 
