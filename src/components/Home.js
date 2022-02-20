@@ -59,12 +59,6 @@ function mapStateToProps({ questions, users, authedUser, unAnsweredQuestionsIsAc
   const sortedAnsweredQuestions = answeredQuestions.sort((a, b) => (a.timestamp > b.timestamp) ? 1 : -1) 
   const sortedUnansweredQuestions = unAnsweredQuestions.sort((a, b) => (a.timestamp > b.timestamp) ? 1 : -1)
 
-  
-  //TODO: Filter the answered and unanswered questions from recently created.
-
-  console.log("ANSWERED QUESTIONS", sortedAnsweredQuestions)
-  console.log("UNANSWERED QUESTIONS", sortedUnansweredQuestions)
-
   return {
     unAnsweredQuestionsIsActive: unAnsweredQuestionsIsActive,
     answeredQuestions: sortedAnsweredQuestions,
