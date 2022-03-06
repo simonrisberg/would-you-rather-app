@@ -53,7 +53,7 @@ li {
   justify-content: center;
   margin: 0 auto;
   border: 1px solid #dad7d7;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 
 .new-question-headline {
@@ -192,7 +192,7 @@ li {
   display: flex;
   margin: 30px;
   border: 1px solid #dad7d7;
-  border-radius: 3px;
+  border-radius: 10px;
   cursor: pointer;
   text-decoration: none;
 }
@@ -248,7 +248,7 @@ li {
   display: flex;
   margin: 30px;
   border: 1px solid #dad7d7;
-  border-radius: 3px;
+  border-radius: 10px;
   cursor: pointer;
   display: flex;
   flex-direction: row;
@@ -302,7 +302,7 @@ li {
   justify-content: center;
   margin: 0 auto;
   border: 1px solid #dad7d7;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 
 .poll-result-headline {
