@@ -19,12 +19,12 @@ class PollResult extends Component {
             <h2>Results:</h2>
             <div className='poll-result-box'>
               <p style={{fontWeight: 'bold'}}>Would you rather code JavaScript?</p>
-              <Progress value={100} color={"success"} />
+              <Progress value={10} color={"success"}>10%</Progress>
               <p>1 out of 2 votes</p>
             </div>
             <div className='poll-result-box'>
               <p style={{fontWeight: 'bold'}}>Would you rather code JavaScript?</p>
-              <Progress value={100} color={"success"} />
+              <Progress value={100} color={"success"}>100%</Progress>
               <p>1 out of 2 votes</p>
             </div>
           </div>
