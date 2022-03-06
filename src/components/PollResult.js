@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Progress } from "reactstrap";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class PollResult extends Component {
 
@@ -16,10 +19,12 @@ class PollResult extends Component {
             <h2>Results:</h2>
             <div className='poll-result-box'>
               <p style={{fontWeight: 'bold'}}>Would you rather code JavaScript?</p>
+              <Progress value={100} color={"success"} />
               <p>1 out of 2 votes</p>
             </div>
             <div className='poll-result-box'>
               <p style={{fontWeight: 'bold'}}>Would you rather code JavaScript?</p>
+              <Progress value={100} color={"success"} />
               <p>1 out of 2 votes</p>
             </div>
           </div>

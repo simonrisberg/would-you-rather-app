@@ -343,6 +343,26 @@ li {
   margin-bottom: 10px;
 }
 
+.poll-result-bar-container {
+  height: 30px;
+  background-color: #CCC;
+  position: relative;
+  border-radius: 10px;
+}
+
+.poll-result-bar-container .progress-bar {
+  position: absolute;
+  height: 100%;
+  background-color: #00CC66;
+  animation: progress-animation 5s forwards;
+  border-radius: 10px;
+}
+
+@keyframes progress-animation {
+  0% { width: 0%}
+  100% {width: 100%;}
+}
+
 .poll-details {
   width: 100%;
   max-width: 590px;
