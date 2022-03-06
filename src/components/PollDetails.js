@@ -1,13 +1,28 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+import PollResult from "./PollResult";
 
 class PollDetails extends Component {
 
   render() {
 
-    const { question, author } = this.props
+    const { question, author, authedUser } = this.props
+
+    console.log("QUESTION", question.id)
+
+    console.log("ANSWERS", authedUser.answers)
+
+
+    const isAnswered = authedUser.answers[question.id] ? true : false
+
+    console.log("ANSWERED", isAnswered)
+
 
     return (
+      isAnswered
+      ?
+      <PollResult/>
+      :
       <div className="poll-details">
         <h2>{author.name} asks:</h2>
         <div className="poll-details-info">
@@ -36,7 +51,6 @@ class PollDetails extends Component {
             </div>
           </form>
         </div>
-
       </div>
     )
   }
@@ -53,10 +67,13 @@ function mapStateToProps({ authedUser, questions, users}, props) {
 
   const questionAuthor = theCurrentQuestion.author
 
+  const authedUserInformation = users[authedUser]
+
   return {
     id,
     question: questions[id],
-    author: users[questionAuthor]
+    author: users[questionAuthor],
+    authedUser: authedUserInformation
   }
 }
 
