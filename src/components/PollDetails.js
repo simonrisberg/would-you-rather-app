@@ -8,20 +8,13 @@ class PollDetails extends Component {
 
     const { question, author, authedUser } = this.props
 
-    console.log("QUESTION", question.id)
-
-    console.log("ANSWERS", authedUser.answers)
-
-
     const isAnswered = authedUser.answers[question.id] ? true : false
-
-    console.log("ANSWERED", isAnswered)
 
 
     return (
       isAnswered
       ?
-      <PollResult/>
+      <PollResult author={author} question={question} />
       :
       <div className="poll-details">
         <h2>{author.name} asks:</h2>
@@ -56,8 +49,6 @@ class PollDetails extends Component {
   }
 
 }
-
-//TODO: Add a new view that will be shown if a user has answered a poll
 
 function mapStateToProps({ authedUser, questions, users}, props) {
   
