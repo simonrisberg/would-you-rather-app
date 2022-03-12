@@ -3,12 +3,17 @@ import { connect } from "react-redux";
 import { Progress } from "reactstrap";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Redirect } from "react-router-dom";
 
 class PollResult extends Component {
 
   render() {
 
     const { question, author, totalNumberOfVotes, percentVotedForQuestionOne, percentVotedForQuestionTwo, loggedInUser, chosenOption } = this.props
+
+    if(loggedInUser === null) {
+      return <Redirect to='/' />
+    }
 
 
     return (
