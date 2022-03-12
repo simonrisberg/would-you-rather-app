@@ -22,13 +22,13 @@ class PollResult extends Component {
             <h2>Results:</h2>
             {chosenOption != 'optionTwo' ?
               <div className='poll-result-box-highlighted'>
-                <p style={{ fontWeight: 'bold' }}>Would you rather {question.optionTwo.text} ?</p>
-                <Progress value={percentVotedForQuestionTwo} color={"success"}>{percentVotedForQuestionTwo}%</Progress>
+                <p style={{ fontWeight: 'bold' }}>Would you rather {question.optionOne.text} ?</p>
+                <Progress value={percentVotedForQuestionOne} color={"success"}>{percentVotedForQuestionOne}%</Progress>
                 <p>1 out of {totalNumberOfVotes} votes</p>
               </div>
               : <div className='poll-result-box'>
-                <p style={{ fontWeight: 'bold' }}>Would you rather {question.optionTwo.text} ?</p>
-                <Progress value={percentVotedForQuestionTwo} color={"success"}>{percentVotedForQuestionTwo}%</Progress>
+                <p style={{ fontWeight: 'bold' }}>Would you rather {question.optionOne.text} ?</p>
+                <Progress value={percentVotedForQuestionOne} color={"success"}>{percentVotedForQuestionOne}%</Progress>
                 <p>1 out of {totalNumberOfVotes} votes</p>
               </div>
 
