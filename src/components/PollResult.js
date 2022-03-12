@@ -8,9 +8,10 @@ class PollResult extends Component {
 
   render() {
 
-    const { question, author, totalNumberOfVotes, percentVotedForQuestionOne, percentVotedForQuestionTwo } = this.props
+    const { question, author, totalNumberOfVotes, percentVotedForQuestionOne, percentVotedForQuestionTwo, loggedInUser, chosenOption } = this.props
 
-    return(
+
+    return (
       <div className='poll-result-container'>
         <h2 className='poll-result-headline'>Asked by {author.name}</h2>
         <div className='poll-result-info-container'>
@@ -19,16 +20,33 @@ class PollResult extends Component {
           </div>
           <div className='poll-result-vote-container'>
             <h2>Results:</h2>
-            <div className='poll-result-box'>
-              <p style={{fontWeight: 'bold'}}>Would you rather {question.optionOne.text} ?</p>
-              <Progress value={percentVotedForQuestionOne} color={"success"}>{percentVotedForQuestionOne}%</Progress>
-              <p>1 out of {totalNumberOfVotes} votes</p>
-            </div>
-            <div className='poll-result-box'>
-              <p style={{fontWeight: 'bold'}}>Would you rather {question.optionTwo.text} ?</p>
-              <Progress value={percentVotedForQuestionTwo} color={"success"}>{percentVotedForQuestionTwo}%</Progress>
-              <p>1 out of {totalNumberOfVotes} votes</p>
-            </div>
+            {chosenOption != 'optionTwo' ?
+              <div className='poll-result-box-highlighted'>
+                <p style={{ fontWeight: 'bold' }}>Would you rather {question.optionTwo.text} ?</p>
+                <Progress value={percentVotedForQuestionTwo} color={"success"}>{percentVotedForQuestionTwo}%</Progress>
+                <p>1 out of {totalNumberOfVotes} votes</p>
+              </div>
+              : <div className='poll-result-box'>
+                <p style={{ fontWeight: 'bold' }}>Would you rather {question.optionTwo.text} ?</p>
+                <Progress value={percentVotedForQuestionTwo} color={"success"}>{percentVotedForQuestionTwo}%</Progress>
+                <p>1 out of {totalNumberOfVotes} votes</p>
+              </div>
+
+            }
+            {chosenOption === 'optionTwo' ?
+              <div className='poll-result-box-highlighted'>
+                <p style={{ fontWeight: 'bold' }}>Would you rather {question.optionTwo.text} ?</p>
+                <Progress value={percentVotedForQuestionTwo} color={"success"}>{percentVotedForQuestionTwo}%</Progress>
+                <p>1 out of {totalNumberOfVotes} votes</p>
+              </div>
+              : <div className='poll-result-box'>
+                <p style={{ fontWeight: 'bold' }}>Would you rather {question.optionTwo.text} ?</p>
+                <Progress value={percentVotedForQuestionTwo} color={"success"}>{percentVotedForQuestionTwo}%</Progress>
+                <p>1 out of {totalNumberOfVotes} votes</p>
+              </div>
+
+            }
+
           </div>
         </div>
       </div>
@@ -36,18 +54,21 @@ class PollResult extends Component {
   }
 }
 
-function mapStateToProps(state, {author, question}) {
+function mapStateToProps({ authedUser, users }, { author, question }) {
 
 
   const totalNumberOfVotes = question.optionOne.votes.length + question.optionTwo.votes.length
+  const loggedInUser = users[authedUser]
 
   return {
     question: question,
     author: author,
     totalNumberOfVotes: totalNumberOfVotes,
     percentVotedForQuestionOne: question.optionOne.votes.length / totalNumberOfVotes * 100,
-    percentVotedForQuestionTwo: question.optionTwo.votes.length / totalNumberOfVotes * 100
-    
+    percentVotedForQuestionTwo: question.optionTwo.votes.length / totalNumberOfVotes * 100,
+    loggedInUser: loggedInUser,
+    chosenOption: loggedInUser.answers[question.id]
+
   }
 }
 
