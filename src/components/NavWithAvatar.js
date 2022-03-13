@@ -38,13 +38,8 @@ class NavWithAvatar extends Component {
 
 function mapStateToProps({users, authedUser }) {
 
-  const loggedInUser = users[authedUser]
-
-  console.log("AUTHED USER", authedUser)
-  console.log("LOGGED IN USER", loggedInUser)
-
   return {
-    loggedInUser: loggedInUser
+    loggedInUser: users[authedUser]
   }
 
 }
