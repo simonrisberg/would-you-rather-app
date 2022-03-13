@@ -32,7 +32,7 @@ class PollDetails extends Component {
 
   render() {
 
-    const { question, author, authedUser } = this.props
+    const { question, author } = this.props
 
     const { toHome } = this.state
 
@@ -88,7 +88,8 @@ function mapStateToProps({ authedUser, questions, users}, props) {
   return {
     id,
     question: questions[id],
-    author: users[questionAuthor]
+    author: users[questionAuthor],
+    authedUser,
   }
 }
 
