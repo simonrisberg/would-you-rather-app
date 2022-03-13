@@ -15,6 +15,8 @@ class PollResult extends Component {
       return <Redirect to='/' />
     }
 
+    console.log("TOTAL NUMBER", totalNumberOfVotes)
+
 
     return (
       <div className='poll-result-container'>
@@ -29,12 +31,12 @@ class PollResult extends Component {
               <div className='poll-result-box-highlighted'>
                 <p style={{ fontWeight: 'bold' }}>Would you rather {question.optionOne.text} ?</p>
                 <Progress value={percentVotedForQuestionOne} color={"success"}>{percentVotedForQuestionOne}%</Progress>
-                <p>1 out of {totalNumberOfVotes} votes</p>
+                <p>{question.optionOne.votes.length} out of {totalNumberOfVotes} votes</p>
               </div>
               : <div className='poll-result-box'>
                 <p style={{ fontWeight: 'bold' }}>Would you rather {question.optionOne.text} ?</p>
                 <Progress value={percentVotedForQuestionOne} color={"success"}>{percentVotedForQuestionOne}%</Progress>
-                <p>1 out of {totalNumberOfVotes} votes</p>
+                <p>{question.optionOne.votes.length} out of {totalNumberOfVotes} votes</p>
               </div>
 
             }
@@ -42,12 +44,12 @@ class PollResult extends Component {
               <div className='poll-result-box-highlighted'>
                 <p style={{ fontWeight: 'bold' }}>Would you rather {question.optionTwo.text} ?</p>
                 <Progress value={percentVotedForQuestionTwo} color={"success"}>{percentVotedForQuestionTwo}%</Progress>
-                <p>1 out of {totalNumberOfVotes} votes</p>
+                <p>{question.optionTwo.votes.length} out of {totalNumberOfVotes} votes</p>
               </div>
               : <div className='poll-result-box'>
                 <p style={{ fontWeight: 'bold' }}>Would you rather {question.optionTwo.text} ?</p>
                 <Progress value={percentVotedForQuestionTwo} color={"success"}>{percentVotedForQuestionTwo}%</Progress>
-                <p>1 out of {totalNumberOfVotes} votes</p>
+                <p>{question.optionTwo.votes.length} out of {totalNumberOfVotes} votes</p>
               </div>
 
             }
