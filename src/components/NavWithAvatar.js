@@ -27,6 +27,9 @@ class NavWithAvatar extends Component {
           <li>
             <img src={loggedInUser.avatarURL} alt={"Avatar"} className='nav-avatar'></img>
           </li>
+          <li>
+            <h2>{loggedInUser.name}</h2>
+          </li>
         </ul>
       </nav>
     )
@@ -36,6 +39,9 @@ class NavWithAvatar extends Component {
 function mapStateToProps({users, authedUser }) {
 
   const loggedInUser = users[authedUser]
+
+  console.log("AUTHED USER", authedUser)
+  console.log("LOGGED IN USER", loggedInUser)
 
   return {
     loggedInUser: loggedInUser
