@@ -6,30 +6,30 @@ import { Redirect } from 'react-router-dom'
 class PollDetails extends Component {
 
   state = {
-    selectedOption: "",
+    answer: "",
     toHome: false
   }
 
   handleOptionChange = (e) => {
     this.setState({
-      selectedOption: e.target.value
+      answer: e.target.value
     })
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
 
-    const { selectedOption } = this.state
-    const { dispatch, authedUser, id } = this.props
+    const { answer } = this.state
+    const { dispatch, authedUser, qid } = this.props
 
-    console.log("SELECTED OPTION", selectedOption)
+    console.log("SELECTED OPTION", answer)
     console.log("AUTHED USER", authedUser)
-    console.log("QUESTION ID", id)
+    console.log("QUESTION ID", qid)
 
-    //dispatch(handleAddQuestionAnswer({authedUser, id, selectedOption}))
+    dispatch(handleAddQuestionAnswer({qid, authedUser, answer}))
 
     this.setState(() => ({
-      selectedOption: '',
+      answer: '',
       toHome: true
     }))
   }
@@ -70,7 +70,7 @@ class PollDetails extends Component {
                 />
                 {question.optionTwo.text}
               </label>
-              <button className="new-question-btn">Submit</button>
+              <button className="new-question-btn" type="submit">Submit</button>
             </div>
           </form>
         </div>
@@ -90,7 +90,7 @@ function mapStateToProps({ authedUser, questions, users}, props) {
   const questionAuthor = theCurrentQuestion.author
 
   return {
-    id,
+    qid: id,
     question: questions[id],
     author: users[questionAuthor],
     authedUser,
