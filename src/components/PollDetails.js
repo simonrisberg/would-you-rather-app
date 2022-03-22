@@ -56,7 +56,7 @@ class PollDetails extends Component {
                 <input
                   type="radio"
                   name="pollOption"
-                  value="optionTwo"
+                  value="optionOne"
                   onChange={this.handleOptionChange}
                 />
                 {question.optionOne.text}
@@ -65,7 +65,7 @@ class PollDetails extends Component {
                 <input
                   type="radio"
                   name="pollOption"
-                  value="optionOne"
+                  value="optionTwo"
                   onChange={this.handleOptionChange}
                 />
                 {question.optionTwo.text}
