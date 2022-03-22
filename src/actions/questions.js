@@ -1,4 +1,5 @@
 import { saveQuestion, saveQuestionAnswer } from "../utils/api"
+import { addUserAnswer } from "./users"
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ADD_QUESTION = 'ADD_QUESTION'
@@ -17,11 +18,13 @@ function addQuestionAnswer({qid, authedUser, answer}) {
 export function handleAddQuestionAnswer(info) {
   return (dispatch) => {
     dispatch(addQuestionAnswer(info))
+    dispatch(addUserAnswer(info))
 
     return saveQuestionAnswer(info)
       .catch((e) => {
         console.warn('Error in handleAddQuestionAnswer: ', e)
         dispatch(addQuestionAnswer(info))
+        dispatch(addUserAnswer(info))
         alert('There was an error posting the answer. Try again!')
       })
 

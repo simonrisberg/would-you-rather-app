@@ -28,6 +28,8 @@ class PollDetails extends Component {
 
     dispatch(handleAddQuestionAnswer({qid, authedUser, answer}))
 
+    //TODO: Add a dispatch to update users state as well.
+
     this.setState(() => ({
       answer: '',
       toHome: true
