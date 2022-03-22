@@ -22,7 +22,11 @@ class PollDetails extends Component {
     const { selectedOption } = this.state
     const { dispatch, authedUser, id } = this.props
 
-    dispatch(handleAddQuestionAnswer({authedUser, id, selectedOption}))
+    console.log("SELECTED OPTION", selectedOption)
+    console.log("AUTHED USER", authedUser)
+    console.log("QUESTION ID", id)
+
+    //dispatch(handleAddQuestionAnswer({authedUser, id, selectedOption}))
 
     this.setState(() => ({
       selectedOption: '',
@@ -45,7 +49,7 @@ class PollDetails extends Component {
         <h2>{author.name} asks:</h2>
         <div className="poll-details-info">
           <img src={author.avatarURL} alt={"Avatar"} className='poll-details-img'></img>
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <div className="poll-details-choice">
               <h2>Would you rather</h2>
               <label style={{ marginBottom: "20px" }}>
