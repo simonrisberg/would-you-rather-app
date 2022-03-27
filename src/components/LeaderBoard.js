@@ -44,8 +44,6 @@ class LeaderBoard extends Component {
 
 function mapStateToProps({ users }) {
 
-
-
   const formattedUsers = Object.values(users).map(user => (
     { ...user, totalScore: user.questions.length + Object.values(user.answers).length }
   ))
