@@ -15,8 +15,6 @@ class PollResult extends Component {
       return <Redirect to='/' />
     }
 
-    console.log("TOTAL NUMBER", totalNumberOfVotes)
-
 
     return (
       <div className='poll-result-container'>

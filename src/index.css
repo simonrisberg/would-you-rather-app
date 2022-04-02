@@ -386,3 +386,27 @@ li {
   flex-direction: column;
 }
 
+.logout-button {
+  background-color: #00CC66; 
+  border: none;
+  color: white;
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 20px;
+  transition-duration: 0.4s;
+  font-weight: bold;
+}
+
+.logout-button:hover {
+  background-color: white;
+  color: #00CC66;
+  border: 2px solid #00CC66;
+  cursor: pointer;
+}
+
