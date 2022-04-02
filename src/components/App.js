@@ -8,7 +8,6 @@ import Login from './LogIn'
 import Home from './Home'
 import LeaderBoard from './LeaderBoard'
 import NewQuestion from './NewQuestion';
-import PollDetails from './PollDetails';
 import PollDecider from './PollDecider';
 
 class App extends Component {
