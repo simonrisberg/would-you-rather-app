@@ -10,8 +10,6 @@ class LogIn extends Component {
 
   handleChange = (userId) => {
 
-    console.log("SELECTED USER", userId)
-
     this.setState(() => ({
       selectedUserId: userId
     }))
@@ -23,8 +21,6 @@ class LogIn extends Component {
     e.preventDefault()
 
     const { selectedUserId } = this.state
-
-    console.log("SELECTED", selectedUserId)
     
     this.props.dispatch(setAuthedUser(selectedUserId))
 
@@ -33,8 +29,6 @@ class LogIn extends Component {
 
   render() {
     const { users } = this.props
-
-    console.log("USERS", users)
 
     return (
       <div className='login-container'>

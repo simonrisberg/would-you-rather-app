@@ -7,8 +7,6 @@ class LeaderBoard extends Component {
 
     const { users } = this.props
 
-    console.log("USERS", users)
-
     return (
 
       <div className="leaderboard-container">

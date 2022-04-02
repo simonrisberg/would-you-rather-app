@@ -22,10 +22,6 @@ class PollDetails extends Component {
     const { answer } = this.state
     const { dispatch, authedUser, qid } = this.props
 
-    console.log("SELECTED OPTION", answer)
-    console.log("AUTHED USER", authedUser)
-    console.log("QUESTION ID", qid)
-
     dispatch(handleAddQuestionAnswer({qid, authedUser, answer}))
 
     this.setState(() => ({

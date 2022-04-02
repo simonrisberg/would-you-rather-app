@@ -9,9 +9,6 @@ class PollDecider extends Component {
 
         const { answeredQuestionids, qid, question, author} = this.props
 
-        console.log("ANSWERED QUESTIONS", answeredQuestionids)
-        console.log("QUESTION ID", qid)
-
         return (
             <div>
                 {answeredQuestionids.indexOf(qid) !== -1 ? <PollResult question={question} author={author} /> : <PollDetails id={qid}/>}
