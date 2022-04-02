@@ -9,6 +9,7 @@ import Home from './Home'
 import LeaderBoard from './LeaderBoard'
 import NewQuestion from './NewQuestion';
 import PollDetails from './PollDetails';
+import PollDecider from './PollDecider';
 
 class App extends Component {
   componentDidMount() {
@@ -33,7 +34,7 @@ class App extends Component {
               : <div>
                 <Route path='/' exact component={Home}/>
                 <Route path='/leaderboard' component={LeaderBoard} />
-                <Route path='/question/:id' component={PollDetails} />
+                <Route path='/question/:id' component={PollDecider} />
                 <Route path='/add' component={NewQuestion}/>
               </div>}
           </div>
