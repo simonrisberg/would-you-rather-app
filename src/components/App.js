@@ -33,7 +33,7 @@ class App extends Component {
               : <div>
                 <Route path='/' exact component={Home}/>
                 <Route path='/leaderboard' component={LeaderBoard} />
-                <Route path='/question/:id' component={PollDecider} />
+                <Route path='/questions/:id' component={PollDecider} />
                 <Route path='/add' component={NewQuestion}/>
               </div>}
           </div>
