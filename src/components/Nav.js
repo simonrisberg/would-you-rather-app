@@ -7,7 +7,7 @@ class Nav extends Component {
       <nav className='nav'>
         <ul>
           <li>
-            <NavLink to='/' exact="true">
+            <NavLink exact to='/'>
               Home
             </NavLink>
           </li>
